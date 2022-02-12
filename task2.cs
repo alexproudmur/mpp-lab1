@@ -7,7 +7,7 @@ namespace MP_Lab1
     {
         public static void Main(string[] args)
         {
-            string path = "C:\\Users\\alexp.DESKTOP-REM2UP4\\source\\repos\\MP_Lab1\\input2.txt";
+            string path = "Path Here";
             int pageLines = 45;
             String upper = "ABCDEFGHIJKLMNOPQRSTUVWXYZ";
             String lower = "abcdefghijklmnopqrstuvwxyz ";
