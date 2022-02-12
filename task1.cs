@@ -1,18 +1,22 @@
 using System;
+using System.ComponentModel.Design;
+using System.Globalization;
 using System.IO;
 
 namespace MP_Lab1
 {
     class task1
     {
-        public static void Main(string[] args)
+        public void Main(string[] args)
         {
-            String[] ignoredWords = {"for", "the", "a", "in", "an"};
+	        string path = "Your path here";
+	        String[] ignoredWords = {"for", "the", "a", "in", "an"};
             String upper = "ABCDEFGHIJKLMNOPQRSTUVWXYZ";
-            String lower = "abcdefghijklmnopqrstuvwxyz";
+            String lower = "abcdefghijklmnopqrstuvwxyz,.-“”;!?";
             int mostFrequentCount = 25;
 
-            String content = File.ReadAllText("C:\\Users\\alexp.DESKTOP-REM2UP4\\source\\repos\\MP_Lab1\\input.txt");
+            String content = File.ReadAllText(path);
+            
             content += "$";
 
             String tmpText = "";
@@ -45,7 +49,7 @@ namespace MP_Lab1
                 lowercaseCheck:
                 if (content[i] == lower[lowerCaseIndex]) isLower = true;
                 lowerCaseIndex++;
-                if (lowerCaseIndex != 26 && isLower == false) goto lowercaseCheck;
+                if (lowerCaseIndex != lower.Length && isLower == false) goto lowercaseCheck;
 
                 if (isLower)
                 {
@@ -185,12 +189,19 @@ namespace MP_Lab1
             }
             i++;
             prevFrequency = currFrequency;
+            if (i >= frequencies.Length)
+            {
+	            goto Exit;
+            }
             currFrequency = frequencies[i];
             if (currFrequency == prevFrequency) goto DecrementFrequency;
 	        
             end:
             max--;
             if(max != 0 && currFrequency != 0) goto printFrequency;
+            
+            Exit:
+            i = 0;
         }
     }
 }
