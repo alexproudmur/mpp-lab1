@@ -7,7 +7,7 @@ namespace MP_Lab1
 {
     class task1
     {
-        public void Main(string[] args)
+        public static void Main(string[] args)
         {
 	        string path = "Your path here";
 	        String[] ignoredWords = {"for", "the", "a", "in", "an"};
